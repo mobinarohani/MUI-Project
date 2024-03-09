@@ -1,0 +1,6 @@
+.style-container{
+    display: flex !important;
+    flex-wrap: wrap;
+    grid-gap: 1rem;
+    margin: 2rem;
+}
