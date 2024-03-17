@@ -1,0 +1,28 @@
+.product-style-btn{
+    color: #7469B6 !important;
+}
+
+.card-style-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-style-containerBTN{
+    padding: 0 !important;
+}
+
+.modal-style-container{
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem !important;
+}
+
+.modal-style-description{
+    margin: 10px !important;
+}
+
+.modal.style-btn{
+    margin-bottom: 0 !important;
+}

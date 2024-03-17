@@ -6,11 +6,53 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+
 import './Product.css'
 
+
 export default function Product(props) {
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '4px solid #E1AFD1',
+    boxShadow: 24,
+    borderRadius: "1rem",
+  };
+
+  const style2 = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '4px solid #7469B6',
+    boxShadow: 24,
+    borderRadius: "1rem",
+  };
+  
+  const [open, setOpen] = React.useState(false);
+  const [openchild, setOpenchild] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handlechild = () =>{
+    setOpen(false);
+    setOpenchild(true);
+    props.addproduct(props.id)
+  } 
+  
+  const handleClosechild = () => setOpenchild(false);
   return (
-    <Card sx={{ maxWidth: 310 }}>
+    <>
+    <Card sx={{ minWidth: 310 ,maxWidth: 310}} className='card-style-flex'>
       <div style={{height:"340px"}}>
         <CardMedia
         sx={{ height: "100%" ,width:"100%"}}
@@ -26,15 +68,44 @@ export default function Product(props) {
          {props.price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {props.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <CardActions  className='card-style-containerBTN'>
+        <Button className="product-style-btn" onClick={handleOpen} size="small">Buy</Button>
+        <Button className="product-style-btn" size="small">Learn More</Button>
       </CardActions>
     </Card>
+      <Modal open={open} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Box sx={style} className='modal-style-container'>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+           Cart
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} className='modal-style-description'>
+          Do you want to add this product to your shopping cart?
+          </Typography>
+          <Typography variant="h4" gutterBottom className='modal-style-btn'>
+            <Button className="product-style-btn" onClick={handlechild} size="small">Yes</Button>
+            <Button className="product-style-btn" onClick={handleClose} size="small">No</Button>
+          </Typography>
+          
+        </Box>
+      </Modal>
+      <Modal open={openchild} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Box sx={style2} className='modal-style-container'>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+           Cart
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} className='modal-style-description'>
+          This product has been added to your shopping cart.
+          </Typography>
+          <Typography variant="h4" gutterBottom className='modal-style-btn'>
+            <Button className="product-style-btn" onClick={handleClosechild} size="small">ok</Button>
+          </Typography>
+          
+        </Box>
+      </Modal>
+    </>
   )
 }
 
