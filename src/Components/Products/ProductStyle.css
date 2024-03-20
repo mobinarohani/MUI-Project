@@ -1,4 +1,14 @@
 .style-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.style-cart{
+    text-align: left;
+    padding: 0 2rem;
+}
+
+.style-container-products{
     display: flex !important;
     flex-wrap: wrap;
     grid-gap: 1rem;

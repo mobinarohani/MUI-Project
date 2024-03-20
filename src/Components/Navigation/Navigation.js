@@ -22,7 +22,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 import PersonIcon from '@mui/icons-material/Person';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MailIcon from '@mui/icons-material/Mail';
@@ -116,7 +115,6 @@ export default function Navigation() {
         <OtherHousesIcon/>,
         <BarChartIcon/>,
         <PersonIcon/>,
-        <ShoppingCartIcon/>,
         <MailIcon/>,
         <InfoIcon/>,
     ])
@@ -152,7 +150,7 @@ export default function Navigation() {
           </DrawerHeader>
           <Divider />
           <List>
-            {['Home', 'BarChart', 'User',"Mail", 'About Us'].map((text, index) => (
+            {['Home', 'BarChart', 'User', 'About Us'].map((text, index) => (
               <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                   sx={{
